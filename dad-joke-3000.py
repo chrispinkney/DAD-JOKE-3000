@@ -8,11 +8,11 @@ header = colored(header, color="green")
 print(header)
 
 def search():
-    user_input = input("What do you want to hear a dad joke about? ")
+    user_input = input("\nWhat do you want to hear a dad joke about? ")
     jokes(user_input)
     again = ''
     while again.lower() not in ('y', 'yes', 'n', 'no'):
-        again = input("Would you like to search again (y/n)?: ")
+        again = input("\nDo you want to hear another? Y/N: ")
     if again.lower() in ('yes', 'y'):
         return search() #Calling yourself
     else:
@@ -31,13 +31,13 @@ def jokes(user_input):
     results = res["results"]
 
     if num_jokes > 1:
-        print(f"I found {num_jokes} jokes, here's a random one: ")
-        print(choice(results)["joke"])
+        print(f"\nI found {num_jokes} jokes! Here's a random one: ")
+        print(colored(choice(results)["joke"], color="green"))
     elif num_jokes == 1:
-        print("Found one joke! Here it is: ")
-        print(results[0]["joke"])
+        print("\nFound one joke! Here it is: ")
+        print(colored(results[0]["joke"], color="green"))
     else:
-        print(f"Sorry, couldn't find a joke about {user_input}.")
+        print(f"\nSorry, couldn't find a joke about {user_input}.")
 
 #Running main game
 search()
